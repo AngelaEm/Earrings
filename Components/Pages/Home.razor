@@ -1,0 +1,41 @@
+﻿@page "/"
+@using earrings.Models
+@inject IProductService ProductService
+
+<PageTitle>Home</PageTitle>
+
+<h1>Örhängen</h1>
+
+<h2>Våra örhängen</h2>
+<div class="row">
+	@if (earrings != null && earrings.Any())
+	{
+		@foreach (var item in earrings)
+		{
+			<div class="col-md-4 mb-4">
+				<div class="card h-100">
+					<img class="card-img-top img-fluid smaller-image" src="@item.Image" alt="@item.Name">
+					<div class="card-body d-flex flex-column">
+						<h5 class="card-title">@item.Name</h5>
+						<p class="card-text">@item.Description</p>
+						<p class="card-text mt-auto"><strong>@item.Price.ToString("C")</strong></p>
+					</div>
+				</div>
+			</div>
+		}
+	}
+	else
+	{
+		<p>Loading...</p>
+	}
+</div>
+
+@code {
+	private List<Earrings> earrings;
+
+	protected override async Task OnInitializedAsync()
+	{
+		earrings = (await ProductService.GetEarrings()).ToList();
+	}
+}
+
