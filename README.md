@@ -2,14 +2,6 @@
 
 Detta är en webbapplikation som visar örhängen till försäljning. Applikationen är byggd med .NET och använder Docker och Docker Compose för att hantera körning och testning av applikationen.
 
-## Förutsättningar
-
-Innan du börjar, se till att du har följande installerat på din maskin:
-
-- [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- [.NET SDK](https://dotnet.microsoft.com/download)
-
 ## Steg-för-steg Guide
 
 ### 1. Klona detta repository
